@@ -1,233 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Experiment No. 5 - Smart Irrigation Portal</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f7f6;
-    }
-    fieldset {
-      border: 2px solid #2e7d32;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      background-color: #ffffff;
-    }
-    legend {
-      font-weight: bold;
-      color: #2e7d32;
-      padding: 0 5px;
-    }
-    label {
-      display: inline-block;
-      width: 180px;
-      margin-bottom: 8px;
-    }
-    input, select {
-      padding: 6px;
-      width: 200px;
-      margin-bottom: 8px;
-    }
-    button {
-      padding: 8px 16px;
-      background-color: #2e7d32;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #1b5e20;
-    }
-    .result-box {
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background-color: #e8f5e9;
-      border-radius: 4px;
-    }
-    .error {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Smart Irrigation Advisory System</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h2>Smart Irrigation Advisory Web Portal</h2>
+    <!-- Header -->
+    <header class="site-header">
 
-  <!-- Integrated HTML Form covering Tasks 1, 2, 5, and 6 -->
-  <fieldset>
-    <legend>Task 1, 2, 5 & 6: Farmer Advisory Request Form</legend>
-    <form id="irrigationForm">
-      <label for="farmerName">Farmer Name:</label>
-      <input type="text" id="farmerName" placeholder="e.g. Ramesh Kumar" required><br>
+        <div class="header-content">
 
-      <label for="mobileNo">Mobile Number:</label>
-      <input type="text" id="mobileNo" placeholder="10 Digits" required><br>
+            <div>
+                <h1>About Smart Irrigation Advisory System</h1>
 
-      <label for="plotId">Plot ID:</label>
-      <input type="text" id="plotId" placeholder="AGR-1234" required><br>
+                <p>AI-Powered Smart Irrigation Portal</p>
+            </div>
 
-      <label for="currentMoisture">Current Moisture (%):</label>
-      <input type="number" id="currentMoisture" placeholder="e.g. 25" required><br>
+            <div class="season">
 
-      <label for="requiredMoisture">Required Moisture (%):</label>
-      <input type="number" id="requiredMoisture" placeholder="e.g. 40" required><br>
+                <small>
+                    Crop:
+                    <strong>Sugarcane</strong>
+                </small>
 
-      <label for="rainForecast">Rainfall Forecast:</label>
-      <select id="rainForecast">
-        <option value="No">No Rain Expected</option>
-        <option value="Yes">Rain Expected</option>
-      </select><br><br>
+            </div>
 
-      <button type="submit">Submit Details</button>
-    </form>
-    <div id="formResult" class="result-box" style="display:none;"></div>
-  </fieldset>
+        </div>
 
-  <!-- Section for Task 3: OOP -->
-  <fieldset>
-    <legend>Task 3: Sugarcane Farm Object (OOP)</legend>
-    <button onclick="displaySugarcaneFarm()">Show Farm Info</button>
-    <div id="task3Result" class="result-box" style="display:none;"></div>
-  </fieldset>
+    </header>
 
-  <!-- Section for Task 4: Arrays & Data Processing -->
-  <fieldset>
-    <legend>Task 4: Hourly Sensor Data Analytics</legend>
-    <button onclick="analyzeSensorData()">Analyze Readings</button>
-    <div id="task4Result" class="result-box" style="display:none;"></div>
-  </fieldset>
 
-  <script>
-    // Task 5: Regular Expression Validation
-    function validateInputs(name, mobile, plot) {
-      const nameRegex = /^[A-Za-z\s]+$/;
-      const mobileRegex = /^\d{10}$/;
-      const plotRegex = /^AGR-\d{4}$/;
+    <!-- Navigation -->
+    <nav class="navbar">
 
-      let errors = [];
+        <a href="index.html">Home</a>
 
-      if (!nameRegex.test(name)) {
-        errors.push("Farmer Name must contain only alphabets and spaces.");
-      }
-      if (!mobileRegex.test(mobile)) {
-        errors.push("Mobile Number must be exactly 10 digits.");
-      }
-      if (!plotRegex.test(plot)) {
-        errors.push("Plot ID must follow the format 'AGR-1234'.");
-      }
+        <a href="irrigation-advisory.html">
+            Irrigation Advisory
+        </a>
 
-      return errors;
-    }
+        <a href="about-system.html" class="active">
+            About System
+        </a>
 
-    // Task 2: Irrigation Recommendation Matrix Logic
-    function calculateRecommendation(rain, moisture) {
-      if (rain === "Yes") {
-        return "Postpone Irrigation";
-      } else if (moisture < 30) {
-        return "Irrigation Required Immediately";
-      } else if (moisture >= 30 && moisture <= 50) {
-        return "Monitor Soil Moisture";
-      } else {
-        return "Irrigation Not Required";
-      }
-    }
+        <a href="farm-information.html">
+            Farm Information
+        </a>
 
-    // Task 6 & Task 1: Form Handling & Deficit Calculation
-    document.getElementById("irrigationForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+        <a href="farm-map.html">
+            Farm Map
+        </a>
 
-      const name = document.getElementById("farmerName").value.trim();
-      const mobile = document.getElementById("mobileNo").value.trim();
-      const plot = document.getElementById("plotId").value.trim();
-      const current = parseFloat(document.getElementById("currentMoisture").value);
-      const required = parseFloat(document.getElementById("requiredMoisture").value);
-      const rain = document.getElementById("rainForecast").value;
+        <a href="recommendation.html">
+            Recommendations
+        </a>
 
-      const resultDiv = document.getElementById("formResult");
-      resultDiv.style.display = "block";
+        <a href="farmer-registration.html">
+            Farmer Registration
+        </a>
 
-      // Execute Task 5 Validation
-      const errors = validateInputs(name, mobile, plot);
-      if (errors.length > 0) {
-        resultDiv.innerHTML = "<p class='error'>Validation Errors:</p><ul>" + 
-          errors.map(err => `<li class='error'>${err}</li>`).join('') + "</ul>";
-        return;
-      }
+        <a href="media.html">
+            Media &amp; Awareness
+        </a>
 
-      // Execute Task 1 Calculation
-      const deficit = required - current;
-      alert(`Farmer: ${name}\nPlot ID: ${plot}\nMoisture Deficit: ${deficit}%`);
+    </nav>
 
-      // Execute Task 2
-      const recommendation = calculateRecommendation(rain, current);
 
-      // Render Summary Output
-      resultDiv.innerHTML = `
-        <h3>Irrigation Advisory Summary</h3>
-        <p><strong>Farmer Name:</strong> ${name}</p>
-        <p><strong>Plot ID:</strong> ${plot}</p>
-        <p><strong>Current Soil Moisture:</strong> ${current}%</p>
-        <p><strong>Required Soil Moisture:</strong> ${required}%</p>
-        <p><strong>Moisture Deficit:</strong> ${deficit}%</p>
-        <p><strong>Recommendation:</strong> ${recommendation}</p>
-      `;
-    });
+    <main>
 
-    // Task 3: Object-Oriented JavaScript
-    const sugarcaneFarm = {
-      farmerName: "Suresh Patil",
-      plotId: "AGR-5678",
-      cropStage: "Vegetative",
-      soilMoisture: 25,
-      area: 4.2,
-      pumpStatus: "OFF",
-      displayFarmInfo: function() {
-        alert(`Farm Info: Plot ${this.plotId} | Farmer: ${this.farmerName} | Crop Stage: ${this.cropStage}`);
-        const resultDiv = document.getElementById("task3Result");
-        resultDiv.style.display = "block";
-        resultDiv.innerHTML = `
-          <h3>Sugarcane Farm Object Details</h3>
-          <p><strong>Farmer Name:</strong> ${this.farmerName}</p>
-          <p><strong>Plot ID:</strong> ${this.plotId}</p>
-          <p><strong>Crop Stage:</strong> ${this.cropStage}</p>
-          <p><strong>Soil Moisture:</strong> ${this.soilMoisture}%</p>
-          <p><strong>Area:</strong> ${this.area} Acres</p>
-          <p><strong>Pump Status:</strong> ${this.pumpStatus}</p>
-        `;
-      }
-    };
+        <!-- Introduction -->
+        <p class="about-intro">
 
-    function displaySugarcaneFarm() {
-      sugarcaneFarm.displayFarmInfo();
-    }
+             The Smart Irrigation Advisory System uses
+            <strong>AI, sensors and agricultural data</strong>
+            to help sugarcane farmers make better irrigation decisions.
 
-    // Task 4: Array Processing
-    function analyzeSensorData() {
-      const readings = [24, 28, 18, 32, 15, 29, 36, 42, 27, 21, 19, 30];
-      const threshold = 20;
+        </p>
 
-      const minVal = Math.min(...readings);
-      const maxVal = Math.max(...readings);
-      const avgVal = (readings.reduce((sum, val) => sum + val, 0) / readings.length).toFixed(2);
-      const criticalReadings = readings.filter(val => val < threshold);
 
-      const resultDiv = document.getElementById("task4Result");
-      resultDiv.style.display = "block";
-      resultDiv.innerHTML = `
-        <h3>Sensor Analytics Report</h3>
-        <p><strong>Hourly Readings (%):</strong> ${readings.join(", ")}</p>
-        <p><strong>Minimum Moisture:</strong> ${minVal}%</p>
-        <p><strong>Maximum Moisture:</strong> ${maxVal}%</p>
-        <p><strong>Average Moisture:</strong> ${avgVal}%</p>
-        <p><strong>Readings Below Threshold (${threshold}%):</strong> ${criticalReadings.length} time(s) [${criticalReadings.join(", ")}%]</p>
-      `;
-    }
-  </script>
+        <!-- Objectives -->
+        <div id="objectives" class="about-section">
+
+            <h2>1. Objectives</h2>
+
+            <p>
+                The main objective is to provide
+                <strong>AI-enabled irrigation advice</strong>
+                according to crop and field conditions.
+            </p>
+
+            <p>
+                The system monitors
+                <em>soil moisture, environmental conditions and crop status</em>
+                using sensors and geospatial technologies.
+            </p>
+
+            <p>
+                It generates
+                <strong>plot-specific irrigation recommendations</strong>
+                to improve water-use efficiency.
+            </p>
+
+            <p>
+                The system also supports
+                <em>sustainable and climate-resilient</em>
+                sugarcane cultivation.
+            </p>
+
+        </div>
+
+
+        <!-- System Features -->
+        <div id="system-features" class="about-section teal-section">
+
+            <h2>2. System Features</h2>
+
+            <p>
+                The system collects agricultural information using
+                <strong>IoT sensors</strong>, weather forecasts,
+                satellite images and farm records.
+            </p>
+
+            <p>
+                <em>Artificial Intelligence and Machine Learning</em>
+                models analyse the collected information and predict
+                irrigation requirements.
+            </p>
+
+            <p>
+                The system provides
+                <strong>irrigation and fertigation recommendations</strong>
+                based on field conditions and weather information.
+            </p>
+
+            <p>
+                Farmers can access agricultural information through
+                user-friendly web and mobile platforms.
+            </p>
+
+        </div>
+
+
+        <!-- Benefits -->
+        <div id="benefits" class="about-section">
+
+            <h2>3. Benefits</h2>
+
+            <p>
+                The system helps reduce
+                <strong>water wastage</strong>
+                and improves irrigation efficiency.
+            </p>
+
+            <p>
+                It helps farmers avoid
+                <em>over-irrigation and delayed irrigation</em>,
+                reducing the possibility of crop water stress.
+            </p>
+
+            <p>
+                AI-based recommendations support better use of
+                <strong>water, electricity and agricultural resources</strong>.
+            </p>
+
+            <p>
+                The system promotes sustainable farming and improves
+                the climate resilience of sugarcane cultivation.
+            </p>
+
+        </div>
+
+
+        <!-- Agricultural Expert -->
+        <div id="expert-message" class="expert-section">
+
+            <h2>4. Agricultural Expert Message</h2>
+
+            <blockquote>
+
+                "Scientific irrigation based on soil moisture, weather
+                conditions and crop requirements can help farmers save
+                water and maintain better crop productivity."
+
+            </blockquote>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <p>
+            <strong>Smart Irrigation for Better Farming</strong>
+        </p>
+
+        <small>
+            AI • Sensors • Sustainable Agriculture
+        </small>
+
+    </footer>
+
 </body>
+
 </html>

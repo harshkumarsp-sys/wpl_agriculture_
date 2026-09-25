@@ -1,8 +1,5 @@
-/* ================================
-   SMART IRRIGATION - COMMON CSS
-   ================================ */
 
-/* Task 1 & Task 3 - Global Theme */
+
 
 body {
     margin: 0;
@@ -10,12 +7,7 @@ body {
     background-color: #F3F7F6;
     color: #263238;
 }
-.about-intro{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
+
 header {
     background-color: #17324D;
     color: white;
@@ -34,7 +26,6 @@ header {
 header h1 {
     margin: 0;
     font-size: 26px;
-    align-items: center;
 }
 
 header p {
