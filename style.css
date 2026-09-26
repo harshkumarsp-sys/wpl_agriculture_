@@ -1,3 +1,4 @@
+```css
 /* ================================
    SMART IRRIGATION - COMMON CSS
    ================================ */
@@ -47,7 +48,6 @@ header p {
     color: #80CBC4;
 }
 
-
 /* Task 2 - Navigation */
 
 nav {
@@ -76,7 +76,6 @@ nav a.active {
     background-color: #00897B;
     color: white;
 }
-
 
 /* Task 3 - Common Sections */
 
@@ -111,7 +110,6 @@ h2 {
     border-left: 5px solid #1976D2;
 }
 
-
 /* Task 4 - Lists */
 
 section ol,
@@ -141,7 +139,6 @@ dd {
     color: #455A64;
 }
 
-
 /* Task 5 - Card / Box Model */
 
 .card,
@@ -156,8 +153,17 @@ dd {
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.07);
     box-sizing: border-box;
+    transition: 0.3s;
 }
 
+/* Small change - card hover effect */
+
+.card:hover,
+.info-card:hover,
+.content-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.10);
+}
 
 /* Task 6 - Images */
 
@@ -172,7 +178,6 @@ img {
 img:hover {
     transform: scale(1.02);
 }
-
 
 /* Task 7 - Tables */
 
@@ -205,7 +210,6 @@ caption {
     font-weight: bold;
     margin-bottom: 10px;
 }
-
 
 /* Task 8 - Forms */
 
@@ -257,7 +261,6 @@ input[type="reset"]:hover {
     background-color: #00695C;
 }
 
-
 /* Task 9 - Page Layout */
 
 .page-layout {
@@ -283,7 +286,6 @@ input[type="reset"]:hover {
     border-radius: 7px;
 }
 
-
 /* Task 10 - Simple Highlight Effect */
 
 .highlight,
@@ -300,7 +302,6 @@ input[type="reset"]:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-
 /* Blockquote */
 
 blockquote {
@@ -310,7 +311,6 @@ blockquote {
     border-left: 5px solid #1976D2;
     color: #455A64;
 }
-
 
 /* Footer - Task 3 */
 
@@ -330,3 +330,4 @@ footer p {
 footer small {
     color: #B0BEC5;
 }
+```
